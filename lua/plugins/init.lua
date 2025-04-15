@@ -77,19 +77,19 @@ return {
       "nvim-lua/plenary.nvim",
     },
   },
-  -- {
-  --   'windwp/nvim-autopairs',
-  --   event = "InsertEnter",
-  --   config = true,
-  --   lazy = true
-  -- },
   {
     'windwp/nvim-ts-autotag',
     lazy = false,
     opts = {}
   },
-  -- {
-  --   "github/copilot.vim",
-  --   lazy = false
-  -- }
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      current_line_blame = true,
+      current_line_blame_opts = {
+        delay = 0,
+        ignore_whitespace = true
+      }
+    }
+  }
 }
