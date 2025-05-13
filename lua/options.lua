@@ -29,6 +29,27 @@ vim.diagnostic.config({
 })
 vim.lsp.inlay_hint.enable(true)
 
+require('mini.animate').setup(
+  {
+    scroll = {
+      enable = false,
+    },
+    -- cursor = {
+    --   enable = false,
+    -- },
+    resize = {
+      enable = false,
+    },
+    open = {
+      enable = false,
+    },
+    close = {
+      enable = false,
+    }
+  }
+)
+
+
 -- FOLDING
 -- vim.o.foldenable = true
 -- vim.o.foldlevel = 99
