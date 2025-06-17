@@ -15,4 +15,5 @@ map("n", "gp", "<cmd> lua require('goto-preview').goto_preview_definition() <cr>
 map("n", "fr", "<cmd> lua require('spectre').toggle() <cr>", { desc = "Typescript Check" })
 map("n", "fc", "<cmd> lua require('spectre').open_visual({select_word=true}) <cr>", { desc = "Find Current Word" })
 map("n", "ca", "<cmd> lua vim.lsp.buf.code_action() <cr>", { desc = "Code Action" })
+map("n", "lr", "<cmd> LspRestart <cr>", { desc = "Restart LSP" })
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

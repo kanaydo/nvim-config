@@ -108,5 +108,19 @@ return {
     ---@diagnostic disable-next-line: undefined-doc-name
     ---@type render.md.UserConfig
     opts = {},
-  }
+  },
+  -- {
+  --   'github/copilot.vim',
+  --   lazy = false,
+  --   -- opts = {
+  --   --   setup = {
+  --   --     keymap = {
+  --   --       accept = "<C-e>",
+  --   --       -- next = "<C-]>",
+  --   --       -- prev = "<C-[>",
+  --   --     },
+  --   --
+  --   --   }
+  --   -- }
+  -- }
 }

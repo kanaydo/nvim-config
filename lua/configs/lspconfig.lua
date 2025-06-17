@@ -8,9 +8,12 @@ local servers = {
   "html",
   "cssls",
   -- "ts_ls",
-  "ruby_lsp",
-  "tailwindcss"
+  -- "ruby_lsp",
+  -- "solargraph",
+  "tailwindcss",
+  "gopls"
 }
+
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -21,6 +24,43 @@ for _, lsp in ipairs(servers) do
     capabilities = nvlsp.capabilities,
   }
 end
+
+lspconfig.ruby_lsp.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  init_options = {
+    enabledFeatures = {
+      codeActions = true,
+      codeLens = true,
+      completion = true,
+      definition = true,
+      diagnostics = true,
+      documentHighlights = true,
+      documentLink = true,
+      documentSymbols = true,
+      foldingRanges = true,
+      formatting = true,
+      hover = true,
+      inlayHint = true,
+      onTypeFormatting = true,
+      selectionRanges = true,
+      semanticHighlighting = true,
+      signatureHelp = true,
+      typeHierarchy = true,
+      workspaceSymbol = true
+    },
+    featuresConfiguration = {
+      inlayHint = {
+        implicitHashValue = true,
+        implicitRescue = true
+      }
+    },
+    formatter = 'rubocop',
+    -- linters = { 'standard' },
+    experimentalFeaturesEnabled = false
+  }
+}
 
 -- configuring single server, example: typescript
 lspconfig.ts_ls.setup {
