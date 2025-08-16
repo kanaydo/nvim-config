@@ -11,7 +11,8 @@ local servers = {
   -- "ruby_lsp",
   -- "solargraph",
   "tailwindcss",
-  "gopls"
+  "gopls",
+  -- "eslint"
 }
 
 local nvlsp = require "nvchad.configs.lspconfig"
@@ -70,24 +71,24 @@ lspconfig.ts_ls.setup {
   settings = {
     javascript = {
       inlayHints = {
-        includeInlayEnumMemberValueHints = true,
+        includeInlayEnumMemberValueHints = false,
         includeInlayFunctionLikeReturnTypeHints = true,
         includeInlayFunctionParameterTypeHints = true,
-        includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+        includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = false,
         includeInlayVariableTypeHints = false,
       },
     },
 
     typescript = {
       inlayHints = {
-        includeInlayEnumMemberValueHints = true,
+        includeInlayEnumMemberValueHints = false,
         includeInlayFunctionLikeReturnTypeHints = true,
         includeInlayFunctionParameterTypeHints = true,
-        includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+        includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = false,
         includeInlayVariableTypeHints = false,
       },
     },

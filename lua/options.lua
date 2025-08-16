@@ -27,6 +27,7 @@ vim.diagnostic.config({
   virtual_text = false,
   virtual_lines = false,
 })
+
 vim.lsp.inlay_hint.enable(true)
 
 require('mini.animate').setup(
@@ -49,6 +50,11 @@ require('mini.animate').setup(
   }
 )
 
+vim.api.nvim_create_user_command("Cppath", function()
+  local path = vim.fn.expand("%:p")
+  vim.fn.setreg("+", path)
+  vim.notify('Copied "' .. path .. '" to the clipboard!')
+end, {})
 
 -- FOLDING
 -- vim.o.foldenable = true
