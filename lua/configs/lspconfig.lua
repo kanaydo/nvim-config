@@ -15,7 +15,7 @@ local servers = {
   -- "eslint"
 }
 
-local nvlsp = require "nvchad.configs.lspconfig"
+local nvlsp = vim.lsp.config
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -71,25 +71,25 @@ lspconfig.ts_ls.setup {
   settings = {
     javascript = {
       inlayHints = {
-        includeInlayEnumMemberValueHints = false,
+        includeInlayEnumMemberValueHints = true,
         includeInlayFunctionLikeReturnTypeHints = true,
         includeInlayFunctionParameterTypeHints = true,
-        includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
+        includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayPropertyDeclarationTypeHints = false,
-        includeInlayVariableTypeHints = false,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayVariableTypeHints = true,
       },
     },
 
     typescript = {
       inlayHints = {
-        includeInlayEnumMemberValueHints = false,
+        includeInlayEnumMemberValueHints = true,
         includeInlayFunctionLikeReturnTypeHints = true,
         includeInlayFunctionParameterTypeHints = true,
-        includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
+        includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayPropertyDeclarationTypeHints = false,
-        includeInlayVariableTypeHints = false,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayVariableTypeHints = true,
       },
     },
   }
