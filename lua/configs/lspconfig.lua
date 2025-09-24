@@ -1,7 +1,7 @@
 -- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
-local lspconfig = require "lspconfig"
+local lspconfig = vim.lsp.config
 
 -- EXAMPLE
 local servers = {
@@ -15,18 +15,19 @@ local servers = {
   -- "eslint"
 }
 
-local nvlsp = vim.lsp.config
+local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+  lspconfig(lsp, {
     on_attach = nvlsp.on_attach,
     on_init = nvlsp.on_init,
     capabilities = nvlsp.capabilities,
-  }
+  })
+  vim.lsp.enable(lsp)
 end
 
-lspconfig.ruby_lsp.setup {
+lspconfig('ruby_lsp', {
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
@@ -61,36 +62,38 @@ lspconfig.ruby_lsp.setup {
     -- linters = { 'standard' },
     experimentalFeaturesEnabled = false
   }
-}
-
--- configuring single server, example: typescript
-lspconfig.ts_ls.setup {
+})
+vim.lsp.enable('ruby_lsp')
+--
+-- -- configuring single server, example: typescript
+lspconfig('ts_ls', {
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
   settings = {
     javascript = {
       inlayHints = {
-        includeInlayEnumMemberValueHints = true,
+        includeInlayEnumMemberValueHints = false,
         includeInlayFunctionLikeReturnTypeHints = true,
         includeInlayFunctionParameterTypeHints = true,
-        includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+        includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = false,
+        includeInlayVariableTypeHints = false,
       },
     },
 
     typescript = {
       inlayHints = {
-        includeInlayEnumMemberValueHints = true,
+        includeInlayEnumMemberValueHints = false,
         includeInlayFunctionLikeReturnTypeHints = true,
         includeInlayFunctionParameterTypeHints = true,
-        includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+        includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = false,
+        includeInlayVariableTypeHints = false,
       },
     },
   }
-}
+})
+vim.lsp.enable('ts_ls')
