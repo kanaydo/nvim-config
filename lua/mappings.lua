@@ -5,7 +5,7 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
+-- map("i", "jk", "<ESC>")
 map("n", "<leader>pc", "<cmd> !pnpm tsc --noEmit <cr>", { desc = "Typescript Check" })
 map("n", "<leader>rz", "<cmd> !rails zeitwerk:check <cr>", { desc = "Check Rails Zeitwerk" })
 map("n", "<leader>rr", "<cmd> !bundle exec annotate --models --exclude tests,fixtures,factories,serializers <cr>",
@@ -21,4 +21,4 @@ map("n", "<leader>cr", "<cmd> Cppath <cr>", { desc = "Copy File Relative Path" }
 --
 local nomap = vim.keymap.del
 
-nomap("i", "jk")
+-- nomap("i", "jk")
