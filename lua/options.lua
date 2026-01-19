@@ -5,40 +5,44 @@ require "nvchad.options"
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
 
--- local diagnostic_signs = {
---   [vim.diagnostic.severity.ERROR] = "",
---   [vim.diagnostic.severity.WARN] = "",
---   [vim.diagnostic.severity.INFO] = "",
---   [vim.diagnostic.severity.HINT] = "󰌵",
--- }
---
--- local function diagnostic_format(diagnostic)
---   return string.format(
---     "%s %s (%s): %s",
---     diagnostic_signs[diagnostic.severity],
---     diagnostic.source,
---     diagnostic.code,
---     diagnostic.message
---   )
--- end
+local diagnostic_signs = {
+  [vim.diagnostic.severity.ERROR] = "",
+  [vim.diagnostic.severity.WARN] = "",
+  [vim.diagnostic.severity.INFO] = "",
+  [vim.diagnostic.severity.HINT] = "󰌵",
+}
+
+local function diagnostic_format(diagnostic)
+  return string.format(
+    "%s %s",
+    diagnostic_signs[diagnostic.severity],
+    diagnostic.message
+  )
+end
 
 vim.opt.relativenumber = true
 
 vim.diagnostic.config({
   virtual_text = false,
-  virtual_lines = false,
+  virtual_lines = {
+    format = diagnostic_format,
+  },
+  underline = true
 })
 
 vim.lsp.inlay_hint.enable(true)
 
-require('mini.animate').setup(
+local animate = require('mini.animate')
+animate.setup(
   {
     scroll = {
       enable = false,
     },
-    -- cursor = {
-    --   enable = false,
-    -- },
+    cursor = {
+      enable = true,
+      timing = animate.gen_timing.exponential({ duration = 300, unit = 'total' }),
+      path = animate.gen_path.angle(),
+    },
     resize = {
       enable = false,
     },
