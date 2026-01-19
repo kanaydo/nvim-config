@@ -69,3 +69,6 @@ end, {})
 -- vim.o.foldtext = ""
 -- vim.opt.foldcolumn = "0"
 -- vim.opt.fillchars:append({ fold = " " })
+
+vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/snippets"
+
