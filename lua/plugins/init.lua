@@ -52,6 +52,9 @@ return {
   {
     'nvim-tree/nvim-tree.lua',
     opts = {
+      filters = {
+        custom = { ".next" },
+      },
       view = {
         width = 50,
       },

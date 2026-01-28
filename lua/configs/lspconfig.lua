@@ -1,5 +1,5 @@
 -- load defaults i.e lua_lsp
--- require("nvchad.configs.lspconfig").defaults()
+require("nvchad.configs.lspconfig").defaults()
 
 -- local lspconfig = vim.lsp.config
 
