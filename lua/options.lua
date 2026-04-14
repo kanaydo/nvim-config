@@ -19,7 +19,8 @@ require "nvchad.options"
 --     diagnostic.message
 --   )
 -- end
-
+vim.opt.title = true
+vim.opt.titlestring = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
 vim.opt.relativenumber = true
 
 vim.diagnostic.config({
@@ -41,7 +42,7 @@ animate.setup(
     },
     cursor = {
       enable = true,
-      timing = animate.gen_timing.exponential({ duration = 300, unit = 'total' }),
+      timing = animate.gen_timing.exponential({ duration = 1000, unit = 'total' }),
       path = animate.gen_path.angle(),
     },
     resize = {
@@ -72,3 +73,43 @@ end, {})
 -- vim.opt.fillchars:append({ fold = " " })
 
 vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/snippets"
+
+-- require("nvim-treesitter.configs").setup {
+--   ensure_installed = { "ruby" },
+--
+--   highlight = {
+--     enable = true,
+--   },
+--
+--   textobjects = {
+--     select = {
+--       enable = true,
+--       lookahead = true,
+--
+--       keymaps = {
+--         ["ib"] = "@block.inner",
+--         ["ab"] = "@block.outer",
+--
+--         ["if"] = "@function.inner",
+--         ["af"] = "@function.outer",
+--       },
+--     },
+--   },
+-- }
+
+vim.api.nvim_create_user_command("LspInfo", "checkhealth vim.lsp", {
+  desc = "Show LSP Info",
+})
+
+vim.api.nvim_create_user_command("LspLog", function(_)
+  local state_path = vim.fn.stdpath("state")
+  local log_path = vim.fs.joinpath(state_path, "lsp.log")
+
+  vim.cmd(string.format("edit %s", log_path))
+end, {
+  desc = "Show LSP log",
+})
+
+vim.api.nvim_create_user_command("LspRestart", "lsp restart", {
+  desc = "Restart LSP",
+})

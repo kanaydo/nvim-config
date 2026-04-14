@@ -11,10 +11,16 @@ local servers = {
   "ruby_lsp",
   -- "solargraph",
   "tailwindcss",
+  -- "tsgo",
   "gopls",
   -- "eslint"
 }
 vim.lsp.enable(servers)
+-- vim.lsp.start({
+--   name = "ruby_lsp",
+--   cmd = { "bundle", "exec", "ruby-lsp" },
+--   root_dir = vim.fs.root(0, { "Gemfile", ".git" }),
+-- })
 
 
 -- local nvlsp = require "nvchad.configs.lspconfig"

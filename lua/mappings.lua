@@ -8,8 +8,20 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 -- map("i", "jk", "<ESC>")
 map("n", "<leader>pc", "<cmd> !pnpm tsc --noEmit <cr>", { desc = "Typescript Check" })
 map("n", "<leader>rz", "<cmd> !rails zeitwerk:check <cr>", { desc = "Check Rails Zeitwerk" })
-map("n", "<leader>rr", "<cmd> !bundle exec annotate --models --exclude tests,fixtures,factories,serializers <cr>",
-  { desc = "Generate Model Schema" })
+map(
+  "n",
+  "<leader>rr",
+  "<cmd> !bundle exec annotate --models --exclude tests,fixtures,factories,serializers <cr>",
+  { desc = "Generate Model Schema" }
+)
+
+map(
+  "n",
+  "<leader>rf",
+  "<cmd> !bundle exec annotate --models %:p <cr>",
+  { desc = "Generate File Model Schema" }
+)
+
 
 map("n", "gp", "<cmd> lua require('goto-preview').goto_preview_definition() <cr>", { desc = "Typescript Check" })
 map("n", "fr", "<cmd> lua require('spectre').toggle() <cr>", { desc = "Typescript Check" })
