@@ -128,6 +128,20 @@ return {
     -- config = function()
     --   -- put your config here
     -- end,
+  },
+  {
+    'stevearc/overseer.nvim',
+    ---@module 'overseer'
+    ---@type overseer.SetupOpts
+    lazy = false,
+    opts = {
+      form = {
+        border = "rounded",
+      },
+    },
+    config = function(_, opts)
+      require("overseer").setup(opts)
+    end
   }
   -- {
   --   'MeanderingProgrammer/render-markdown.nvim',

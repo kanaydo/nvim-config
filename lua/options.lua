@@ -42,7 +42,7 @@ animate.setup(
     },
     cursor = {
       enable = true,
-      timing = animate.gen_timing.exponential({ duration = 1000, unit = 'total' }),
+      timing = animate.gen_timing.exponential({ duration = 200, unit = 'total' }),
       path = animate.gen_path.angle(),
     },
     resize = {

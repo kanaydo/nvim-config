@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "tokyonight",
+  theme = "catppuccin",
   transparency = true,
 
   hl_override = {
@@ -20,8 +20,8 @@ M.base46 = {
 -- M.nvdash = { load_on_startup = true }
 M.ui = {
   statusline = {
-    theme = 'vscode_colored',
-    separator_style = "block"
+    theme = "default",
+    separator_style = "round"
   },
   tabufline = {
     order = { "treeOffset", "buffers" },
