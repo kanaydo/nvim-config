@@ -132,14 +132,7 @@ return {
   {
     'stevearc/overseer.nvim',
     lazy = false,
-    opts = {
-      form = {
-        border = "rounded",
-      },
-    },
-    config = function(_, opts)
-      require("overseer").setup(opts)
-    end
+    opts = {},
   },
   {
     "nvim-telescope/telescope-ui-select.nvim",
