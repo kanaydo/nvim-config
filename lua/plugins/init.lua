@@ -131,8 +131,6 @@ return {
   },
   {
     'stevearc/overseer.nvim',
-    ---@module 'overseer'
-    ---@type overseer.SetupOpts
     lazy = false,
     opts = {
       form = {
@@ -142,7 +140,28 @@ return {
     config = function(_, opts)
       require("overseer").setup(opts)
     end
+  },
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+    lazy = false,
+    config = function()
+      require("telescope").setup({
+        extensions = {
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown({
+              -- even more custom stuff here
+            })
+          }
+        }
+      })
+      -- Load the extension after setting it up
+      require("telescope").load_extension("ui-select")
+    end,
   }
+  -- {
+  --   "nvim-telescope/telescope-ui-select.nvim",
+  --   dependencies = { "nvim-telescope/telescope.nvim" },
+  -- },
   -- {
   --   'MeanderingProgrammer/render-markdown.nvim',
   --   dependencies = {

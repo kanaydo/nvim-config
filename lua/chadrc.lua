@@ -26,6 +26,9 @@ M.ui = {
   tabufline = {
     order = { "treeOffset", "buffers" },
   },
+  -- telescope = {
+  --   style = "bordered"
+  -- }
 }
 
 M.lsp = {
