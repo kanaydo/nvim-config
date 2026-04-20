@@ -61,33 +61,33 @@ local lspconfig = vim.lsp.config
 -- vim.lsp.enable('ruby_lsp')
 --
 -- configuring single server, example: typescript
-lspconfig('ts_ls', {
-  settings = {
-    javascript = {
-      inlayHints = {
-        includeInlayEnumMemberValueHints = false,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayPropertyDeclarationTypeHints = false,
-        includeInlayVariableTypeHints = false,
-      },
-    },
-
-    typescript = {
-      inlayHints = {
-        includeInlayEnumMemberValueHints = false,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayPropertyDeclarationTypeHints = false,
-        includeInlayVariableTypeHints = false,
-      },
-    },
-  }
-})
+-- lspconfig('ts_ls', {
+--   settings = {
+--     javascript = {
+--       inlayHints = {
+--         includeInlayEnumMemberValueHints = false,
+--         includeInlayFunctionLikeReturnTypeHints = true,
+--         includeInlayFunctionParameterTypeHints = true,
+--         includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
+--         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+--         includeInlayPropertyDeclarationTypeHints = false,
+--         includeInlayVariableTypeHints = false,
+--       },
+--     },
+--
+--     typescript = {
+--       inlayHints = {
+--         includeInlayEnumMemberValueHints = false,
+--         includeInlayFunctionLikeReturnTypeHints = true,
+--         includeInlayFunctionParameterTypeHints = true,
+--         includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
+--         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+--         includeInlayPropertyDeclarationTypeHints = false,
+--         includeInlayVariableTypeHints = false,
+--       },
+--     },
+--   }
+-- })
 
 -- EXAMPLE
 local servers = {
