@@ -1,21 +1,8 @@
 -- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
--- local lspconfig = vim.lsp.config
+local lspconfig = vim.lsp.config
 
--- EXAMPLE
-local servers = {
-  "html",
-  "cssls",
-  "ts_ls",
-  "ruby_lsp",
-  -- "solargraph",
-  "tailwindcss",
-  -- "tsgo",
-  "gopls",
-  -- "eslint"
-}
-vim.lsp.enable(servers)
 -- vim.lsp.start({
 --   name = "ruby_lsp",
 --   cmd = { "bundle", "exec", "ruby-lsp" },
@@ -73,35 +60,47 @@ vim.lsp.enable(servers)
 -- })
 -- vim.lsp.enable('ruby_lsp')
 --
--- -- configuring single server, example: typescript
--- lspconfig('ts_ls', {
---   on_attach = nvlsp.on_attach,
---   on_init = nvlsp.on_init,
---   capabilities = nvlsp.capabilities,
---   settings = {
---     javascript = {
---       inlayHints = {
---         includeInlayEnumMemberValueHints = false,
---         includeInlayFunctionLikeReturnTypeHints = true,
---         includeInlayFunctionParameterTypeHints = true,
---         includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
---         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
---         includeInlayPropertyDeclarationTypeHints = false,
---         includeInlayVariableTypeHints = false,
---       },
---     },
---
---     typescript = {
---       inlayHints = {
---         includeInlayEnumMemberValueHints = false,
---         includeInlayFunctionLikeReturnTypeHints = true,
---         includeInlayFunctionParameterTypeHints = true,
---         includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
---         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
---         includeInlayPropertyDeclarationTypeHints = false,
---         includeInlayVariableTypeHints = false,
---       },
---     },
---   }
--- })
--- vim.lsp.enable('ts_ls')
+-- configuring single server, example: typescript
+lspconfig('ts_ls', {
+  settings = {
+    javascript = {
+      inlayHints = {
+        includeInlayEnumMemberValueHints = false,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayPropertyDeclarationTypeHints = false,
+        includeInlayVariableTypeHints = false,
+      },
+    },
+
+    typescript = {
+      inlayHints = {
+        includeInlayEnumMemberValueHints = false,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayPropertyDeclarationTypeHints = false,
+        includeInlayVariableTypeHints = false,
+      },
+    },
+  }
+})
+
+-- EXAMPLE
+local servers = {
+  "html",
+  "cssls",
+  "ts_ls",
+  "ruby_lsp",
+  -- "solargraph",
+  "tailwindcss",
+  -- "tsgo",
+  "gopls",
+  -- "eslint"
+  "dartls"
+}
+
+vim.lsp.enable(servers)
