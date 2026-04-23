@@ -93,11 +93,11 @@ local lspconfig = vim.lsp.config
 local servers = {
   "html",
   "cssls",
-  "ts_ls",
+  -- "ts_ls",
   "ruby_lsp",
   -- "solargraph",
-  "tailwindcss",
-  -- "tsgo",
+  "tsgo",
+  -- "tailwindcss",
   "gopls",
   -- "eslint"
   "dartls"

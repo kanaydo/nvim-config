@@ -13,7 +13,8 @@ M.base46 = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
     Tabline = { bg = 'NONE' },
-    LspInlayHint = { bg = 'NONE' }
+    LspInlayHint = { bg = 'NONE' },
+    Visual = { italic = true, },
   },
 }
 

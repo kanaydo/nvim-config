@@ -32,30 +32,30 @@ vim.diagnostic.config({
   -- underline = true
 })
 
-vim.lsp.inlay_hint.enable(true)
+vim.lsp.inlay_hint.enable(false)
 
-local animate = require('mini.animate')
-animate.setup(
-  {
-    scroll = {
-      enable = false,
-    },
-    cursor = {
-      enable = true,
-      timing = animate.gen_timing.exponential({ duration = 200, unit = 'total' }),
-      path = animate.gen_path.angle(),
-    },
-    resize = {
-      enable = false,
-    },
-    open = {
-      enable = false,
-    },
-    close = {
-      enable = false,
-    }
-  }
-)
+-- local animate = require('mini.animate')
+-- animate.setup(
+--   {
+--     scroll = {
+--       enable = false,
+--     },
+--     cursor = {
+--       enable = true,
+--       timing = animate.gen_timing.exponential({ duration = 200, unit = 'total' }),
+--       path = animate.gen_path.angle(),
+--     },
+--     resize = {
+--       enable = false,
+--     },
+--     open = {
+--       enable = false,
+--     },
+--     close = {
+--       enable = false,
+--     }
+--   }
+-- )
 
 vim.api.nvim_create_user_command("Cppath", function()
   local path = vim.fn.expand("%:p")
@@ -113,3 +113,5 @@ end, {
 vim.api.nvim_create_user_command("LspRestart", "lsp restart", {
   desc = "Restart LSP",
 })
+
+vim.api.nvim_set_hl(0, "GitsignsCurrentLineBlame", { italic = true })
