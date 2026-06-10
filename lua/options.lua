@@ -115,3 +115,12 @@ vim.api.nvim_create_user_command("LspRestart", "lsp restart", {
 })
 
 vim.api.nvim_set_hl(0, "GitsignsCurrentLineBlame", { italic = true })
+
+vim.o.winborder = "rounded"
+--
+-- vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
+--   config = config or {}
+--   config.border = "rounded"
+--
+--   return vim.lsp.handlers.hover(err, result, ctx, config)
+-- end

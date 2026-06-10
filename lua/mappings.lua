@@ -31,6 +31,7 @@ map("n", "<leader>lr", "<cmd> LspRestart <cr>", { desc = "Restart LSP" })
 map("n", "<leader>cr", "<cmd> Cppath <cr>", { desc = "Copy File Relative Path" })
 map("n", "<leader>rt", "<cmd> OverseerRun <cr>", { desc = "Run Task" })
 map("n", "<leader>rl", "<cmd> OverseerToggle <cr>", { desc = "Run Log" })
+-- map("n", "<leader>fp", "<cmd> Telescope projects <cr>", { desc = "List Projects" })
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 --
 local nomap = vim.keymap.del

@@ -61,6 +61,7 @@ return {
       },
       git = {
         ignore = false,
+        timeout = 4000
       },
       renderer = {
         icons = {
@@ -165,35 +166,34 @@ return {
       damping_insert_mode = 0.95,           -- 0.9      [0, 1]
       distance_stop_animating = 0.5,        -- 0.1      > 0
     },
-  }
+  },
   -- {
-  --   "nvim-telescope/telescope-ui-select.nvim",
-  --   dependencies = { "nvim-telescope/telescope.nvim" },
-  -- },
-  -- {
-  --   'MeanderingProgrammer/render-markdown.nvim',
+  --   "Rics-Dev/project-explorer.nvim",
   --   dependencies = {
-  --     'nvim-treesitter/nvim-treesitter',
-  --     'nvim-tree/nvim-web-devicons'
-  --   }, -- if you prefer nvim-web-devicons
+  --     "nvim-telescope/telescope.nvim",
+  --   },
+  --   opts = {
+  --     paths = { "/Users/jadiit/WebstormProjects/ui-encounter" }, --custom path set by user
+  --     -- custom find command set by the user. Default should always work on unix unless user has heavily modified tools and/or PATH
+  --     -- for Windows Users: installing `fd` is recommended with the equivalent `fd` command
+  --     -- "fd . %s -td --min-depth %d --max-depth %d"
+  --     -- command_pattern = "find %s -mindepth %d -maxdepth %d -type d -not -name '.git'",
+  --     -- newProjectPath = "~/dev/",    --custom path for new projects
+  --     -- file_explorer = function(dir) --custom file explorer set by user
+  --     --   vim.cmd("Neotree close")
+  --     --   vim.cmd("Neotree " .. dir)
+  --     -- end,
+  --     -- Or for oil.nvim:
+  --     -- file_explorer = function(dir)
+  --     --   require("oil").open(dir)
+  --     -- end,
+  --   },
+  --   config = function(_, opts)
+  --     require("project_explorer").setup(opts)
+  --   end,
+  --   keys = {
+  --     { "<leader>fp", "<cmd>ProjectExplorer<cr>", desc = "Project Explorer" },
+  --   },
   --   lazy = false,
-  --   ---@module 'render-markdown'
-  --   ---@diagnostic disable-next-line: undefined-doc-name
-  --   ---@type render.md.UserConfig
-  --   opts = {},
   -- },
-  -- {
-  --   'github/copilot.vim',
-  --   lazy = false,
-  --   -- opts = {
-  --   --   setup = {
-  --   --     keymap = {
-  --   --       accept = "<C-e>",
-  --   --       -- next = "<C-]>",
-  --   --       -- prev = "<C-[>",
-  --   --     },
-  --   --
-  --   --   }
-  --   -- }
-  -- }
 }

@@ -15,6 +15,7 @@ M.base46 = {
     Tabline = { bg = 'NONE' },
     LspInlayHint = { bg = 'NONE' },
     Visual = { italic = true, },
+    FloatBorder = { fg = '#dc8a78', bg = 'NONE' }
   },
 }
 
@@ -35,5 +36,6 @@ M.ui = {
 M.lsp = {
   signature = false,
 }
+
 
 return M
