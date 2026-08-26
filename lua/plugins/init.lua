@@ -98,11 +98,11 @@ return {
       current_line_blame_formatter = '🤨 <author>, <author_time:%R> - <summary>',
     }
   },
-  {
-    'echasnovski/mini.animate',
-    lazy = false,
-    version = '*',
-  },
+  -- {
+  --   'echasnovski/mini.animate',
+  --   lazy = false,
+  --   version = '*',
+  -- },
   {
     "folke/todo-comments.nvim",
     lazy = false,
@@ -155,6 +155,26 @@ return {
     end,
   },
   {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    lazy = false,
+    build = 'make',
+    config = function()
+      require("telescope").setup({
+        extensions = {
+          fzf = {
+            fuzzy = true,                   -- false will only do exact matching
+            override_generic_sorter = true, -- override the generic sorter
+            override_file_sorter = true,    -- override the file sorter
+            case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+            -- the default case_mode is "smart_case"
+          }
+        }
+      })
+      -- Load the extension after setting it up
+      require("telescope").load_extension("fzf")
+    end,
+  },
+  {
     "sphamba/smear-cursor.nvim",
     lazy = false,
     opts = {
@@ -167,33 +187,19 @@ return {
       distance_stop_animating = 0.5,        -- 0.1      > 0
     },
   },
-  -- {
-  --   "Rics-Dev/project-explorer.nvim",
-  --   dependencies = {
-  --     "nvim-telescope/telescope.nvim",
-  --   },
-  --   opts = {
-  --     paths = { "/Users/jadiit/WebstormProjects/ui-encounter" }, --custom path set by user
-  --     -- custom find command set by the user. Default should always work on unix unless user has heavily modified tools and/or PATH
-  --     -- for Windows Users: installing `fd` is recommended with the equivalent `fd` command
-  --     -- "fd . %s -td --min-depth %d --max-depth %d"
-  --     -- command_pattern = "find %s -mindepth %d -maxdepth %d -type d -not -name '.git'",
-  --     -- newProjectPath = "~/dev/",    --custom path for new projects
-  --     -- file_explorer = function(dir) --custom file explorer set by user
-  --     --   vim.cmd("Neotree close")
-  --     --   vim.cmd("Neotree " .. dir)
-  --     -- end,
-  --     -- Or for oil.nvim:
-  --     -- file_explorer = function(dir)
-  --     --   require("oil").open(dir)
-  --     -- end,
-  --   },
-  --   config = function(_, opts)
-  --     require("project_explorer").setup(opts)
-  --   end,
-  --   keys = {
-  --     { "<leader>fp", "<cmd>ProjectExplorer<cr>", desc = "Project Explorer" },
-  --   },
-  --   lazy = false,
-  -- },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    event = "BufReadPre",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    opts = {
+      enable = true,
+      max_lines = 3,
+      min_window_height = 20,
+      multiline_threshold = 5,
+      trim_scope = "outer",
+      mode = "cursor",
+    },
+  },
 }
