@@ -123,4 +123,5 @@ vim.o.winborder = "rounded"
 --   config.border = "rounded"
 --
 --   return vim.lsp.handlers.hover(err, result, ctx, config)
+vim.g.lazygit_config = false
 -- end

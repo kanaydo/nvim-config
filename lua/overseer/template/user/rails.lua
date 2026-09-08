@@ -30,6 +30,7 @@ return {
     local cwd = vim.fs.dirname(gemfile)
     local rails = bin_cmd(cwd, "rails")
     local rspec = bin_cmd(cwd, "rspec")
+    local sidekiq = bin_cmd(cwd, "sidekiq")
 
     local function rails_task(name, ...)
       local args = { ... }
@@ -76,6 +77,15 @@ return {
         builder = function()
           return {
             cmd = vim.list_extend(vim.deepcopy(rspec), { vim.fn.expand("%:p") }),
+            cwd = cwd,
+          }
+        end,
+      },
+      {
+        name = "sidekiq",
+        builder = function()
+          return {
+            cmd = vim.deepcopy(sidekiq),
             cwd = cwd,
           }
         end,
