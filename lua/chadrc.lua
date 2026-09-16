@@ -23,7 +23,7 @@ M.base46 = {
 M.ui = {
   statusline = {
     theme = "default",
-    separator_style = "round"
+    separator_style = "arrow"
   },
   tabufline = {
     order = { "treeOffset", "buffers" },
@@ -34,7 +34,7 @@ M.ui = {
 }
 
 M.lsp = {
-  signature = false,
+  signature = true,
 }
 
 
