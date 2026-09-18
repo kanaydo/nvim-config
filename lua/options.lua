@@ -115,6 +115,7 @@ vim.api.nvim_create_user_command("LspRestart", "lsp restart", {
 })
 
 vim.api.nvim_set_hl(0, "GitsignsCurrentLineBlame", { italic = true })
+vim.api.nvim_set_hl(0, "MsgArea", { fg = "#39FF14" })
 
 vim.o.winborder = "rounded"
 --
