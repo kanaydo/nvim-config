@@ -15,7 +15,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "lua", "html", "css", "tsx", "typescript", "ruby"
+        "lua", "html", "css", "tsx", "typescript", "ruby", "markdown", "markdown_inline"
       },
     },
   },
@@ -190,6 +190,23 @@ return {
   --     distance_stop_animating = 0.5,        -- 0.1      > 0
   --   },
   -- },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
+      enabled = true, -- toggle preview with <leader>mp
+      anti_conceal = {
+        enabled = false, -- keep rendering the line under the cursor
+      },
+    },
+    keys = {
+      { "<leader>mp", "<cmd>RenderMarkdown toggle<cr>", ft = "markdown", desc = "Toggle markdown preview" },
+    },
+  },
   {
     "nvim-treesitter/nvim-treesitter-context",
     event = "BufReadPre",
